@@ -1,47 +1,50 @@
 package ĆW3.zad2;
 
+
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class ShoppingCart {
-    private static int COUNTER_ID = 0;
-    private int id = COUNTER_ID++;
-    private ArrayList<Product> products = new ArrayList<>();
-    public double totalPrice(){
-        double price = 0;
-        for (Product product : this.products) {
-            price += product.getPrice();
-        }
-        return price;
+    private int ID = (int) System.currentTimeMillis();
+    double totalPrice;
+    double totalDeliveryTime;
+    ArrayList<Products> products = new ArrayList<>();
+
+
+
+    public int getID() {
+        return ID;
     }
 
-    public int totalDeliveryTime(){
-        int deliveryTime = 0;
-        Set<Storage> uniqueStorages = new HashSet<>();
-
-        for (Product product : this.products) {
-            if(product.getStorage() != null){
-                uniqueStorages.add(product.getStorage());
+    public double getTotalPrice() {
+        double totalPrice = 0;
+        if (products.size()>0){
+            for(Products products : products){
+                totalPrice += products.getPrice();
             }
-        }
 
-        for (Storage storage : uniqueStorages) {
-            deliveryTime += storage.getDeliveryTime();
         }
-
-        return deliveryTime;
+        return totalPrice;
     }
 
-    public void sell(){
-        for (Product product : this.products) {
-            product.sell();
+    public double getTotalDeliveryTime() {
+        double totalDeliveryTime = 0;
+        if (products.size()>0){
+            for (Products products : products){
+                totalDeliveryTime += products.getDeliveryTime();
+            }
+
         }
+        return totalDeliveryTime;
     }
-    public ArrayList<Product> getProducts() {
+
+    public ArrayList<Products> getProducts() {
         return products;
     }
-    public int getId() {
-        return id;
+    public void Sell(){
+        for (Products products : products){
+            products.sell();
+        }
     }
+
 }
+
