@@ -1,4 +1,5 @@
-package ĆW3.zad2;
+package Cwiczenia3.Zadanie2;
+
 
 import java.util.ArrayList;
 public class Person {
@@ -57,38 +58,32 @@ public class Person {
         if (moneyOnCard < 0) {
             throw new RuntimeException("Not enough money on card");
         }
-            this.moneyOnCard = moneyOnCard;
-        }
+        this.moneyOnCard = moneyOnCard;
+    }
 
-        public void MakeOrder(){
+    public void MakeOrder(){
         current = new ShoppingCart();
 
     }
     public void BuyByCard(){
-        if (current.totalPrice > getMoneyOnCard()) {
+        if (current.getTotalPrice() > getMoneyOnCard()) {
             throw new RuntimeException("Not enough money on card");
         }
-        else if (current.totalPrice <=getMoneyOnCard()){
-            setMoneyOnCard(getMoneyOnCard()- current.totalPrice);
+        else if (current.getTotalPrice() <=getMoneyOnCard()){
+            setMoneyOnCard(getMoneyOnCard()- current.getTotalPrice());
             this.history.add(current);
             this.current = null;
         }
     }
     public void BuyByCash(){
-        if (current.totalPrice > getMoneyInCash()) {
+        if (current.getTotalPrice() > getMoneyInCash()) {
             throw new RuntimeException("Not enough money in cash");
         }
-        else if (current.totalPrice <=getMoneyInCash()){
-            setMoneyInCash(getMoneyInCash()- current.totalPrice);
+        else if (current.getTotalPrice() <=getMoneyInCash()){
+            setMoneyInCash(getMoneyInCash()- current.getTotalPrice());
             this.history.add(current);
             this.current = null;
 
         }
     }
-    }
-
-
-
-
-
-
+}

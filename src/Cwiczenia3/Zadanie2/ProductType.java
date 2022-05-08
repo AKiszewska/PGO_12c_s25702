@@ -1,4 +1,4 @@
-package ĆW3.zad2;
+package Cwiczenia3.Zadanie2;
 
 public enum ProductType {
     Consumable,

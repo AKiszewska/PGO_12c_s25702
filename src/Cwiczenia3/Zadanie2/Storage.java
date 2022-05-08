@@ -1,4 +1,4 @@
-package ĆW3.zad2;
+package Cwiczenia3.Zadanie2;
 
 public class Storage {
     private int deliveryTime;
@@ -18,4 +18,3 @@ public class Storage {
         this.deliveryTime = deliveryTime;
     }
 }
-
