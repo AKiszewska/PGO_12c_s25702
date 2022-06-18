@@ -7,7 +7,7 @@ public interface Fun {
         double minimum = a;
         double tmp = a;
         if( a > b ){
-            throw new RuntimeException("'a' couldn't be greater then b");
+            throw new RuntimeException("'a' couldn't be greater than b");
         }
         else{
             while ( tmp <= b ){
